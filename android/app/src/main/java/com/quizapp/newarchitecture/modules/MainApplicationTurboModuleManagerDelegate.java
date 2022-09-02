@@ -1,4 +1,4 @@
-package com.quizapp.newarchitecture.modules;
+package com.yallaemtehen.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
