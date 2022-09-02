@@ -47,11 +47,7 @@ const quizSlice = createSlice({
     incrementScore: (state, action) => {
       state.score += 1;
     },
-    resetQuizConfig: (state, action) => {
-      state.selectedCategory = '';
-      state.selectedDifficulty = '';
-      state.selectedType = '';
-      state.numberOfQuestions = 10;
+    resetPrevScore: (state, action) => {
       state.score = 0;
     },
   },
@@ -78,5 +74,5 @@ export const {
   changeNumberOfQuestions,
   changeType,
   incrementScore,
-  resetQuizConfig,
+  resetPrevScore,
 } = quizSlice.actions;

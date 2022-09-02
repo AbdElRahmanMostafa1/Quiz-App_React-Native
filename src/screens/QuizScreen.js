@@ -10,7 +10,7 @@ import {
 import React, {useEffect, useRef, useState} from 'react';
 import GlobalStyles from '../constants/GlobalStyles';
 import {useDispatch, useSelector} from 'react-redux';
-import {getQuiz, incrementScore, resetQuizConfig} from '../store/quizSlice';
+import {getQuiz, incrementScore, resetPrevScore} from '../store/quizSlice';
 import RenderHtml from 'react-native-render-html';
 import LoadingSpinner from '../components/LoadingSpinner';
 import shuffleArray from '../utils/shuffleArray';
@@ -57,7 +57,7 @@ const QuizScreen = ({navigation}) => {
   useEffect(() => {
     dispatch(getQuiz());
     if (score > 0) {
-      dispatch(resetQuizConfig());
+      dispatch(resetPrevScore());
     }
   }, [dispatch]);
 
@@ -70,7 +70,7 @@ const QuizScreen = ({navigation}) => {
         ]),
       );
     }
-  }, [questions?.length, questionIndex]);
+  }, [questions, questionIndex]);
 
   const checkQuestionAnswer = answer => {
     if (questions[questionIndex]?.correct_answer === answer) {
@@ -87,15 +87,8 @@ const QuizScreen = ({navigation}) => {
     return <LoadingSpinner />;
   }
 
-  if (questions && questions === []) {
-    return (
-      <View>
-        <Text>Test</Text>
-      </View>
-    );
-  }
-
   console.log(questions);
+  console.log(multipleChoiceAns);
 
   return (
     <View style={styles.quizContainer}>
