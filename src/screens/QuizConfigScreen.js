@@ -81,6 +81,7 @@ const QuizConfigScreen = ({navigation}) => {
           <TextField
             label={'No. of Questions'}
             onChangeText={changeNumberOfQuestionsHandler}
+            value={numberOfQuestions}
             textError={amountError}
           />
           <TouchableOpacity
