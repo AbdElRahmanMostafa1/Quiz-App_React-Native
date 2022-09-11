@@ -19,6 +19,7 @@ const QuizConfigScreen = ({navigation}) => {
   const {allCategories, isLoading} = useSelector(
     state => state.questionsCategory,
   );
+  const {numberOfQuestions} = useSelector(state => state.quizConfig);
   const [amountError, setAmountError] = useState(null);
 
   useEffect(() => {
@@ -38,7 +39,8 @@ const QuizConfigScreen = ({navigation}) => {
   };
 
   const changeNumberOfQuestionsHandler = value => {
-    if (value <= 0 || isNaN(value) || value > 15) {
+    console.log(value);
+    if (value <= 0 || isNaN(value) || value > 15 || !value) {
       setAmountError(
         'Oops! Please Enter amount of questions correctly between 1 to 15',
       );
@@ -49,7 +51,11 @@ const QuizConfigScreen = ({navigation}) => {
   };
 
   const goToQuizHandler = () => {
-    navigation.navigate('QuizScreen');
+    if (numberOfQuestions.length === 0 || !numberOfQuestions) {
+      setAmountError('Oops! Please Enter amount of questions between 1 to 15');
+    } else {
+      navigation.navigate('QuizScreen');
+    }
   };
 
   return (
@@ -74,7 +80,6 @@ const QuizConfigScreen = ({navigation}) => {
           />
           <TextField
             label={'No. of Questions'}
-            defaultValue={'10'}
             onChangeText={changeNumberOfQuestionsHandler}
             textError={amountError}
           />
