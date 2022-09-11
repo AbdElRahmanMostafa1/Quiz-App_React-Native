@@ -19,9 +19,9 @@ export const getQuiz = createAsyncThunk('getQuiz', async (_, thunkAPI) => {
     const {data} = await axios.get(
       `https://opentdb.com/api.php?amount=${quizConfig.numberOfQuestions}&category=${quizConfig.selectedCategory}&difficulty=${quizConfig.selectedDifficulty}&type=${quizConfig.selectedType}`,
     );
-    console.log(
-      `https://opentdb.com/api.php?amount=${quizConfig.numberOfQuestions}&category=${quizConfig.selectedCategory}&difficulty=${quizConfig.selectedDifficulty}&type=${quizConfig.selectedType}`,
-    );
+    // console.log(
+    //   `https://opentdb.com/api.php?amount=${quizConfig.numberOfQuestions}&category=${quizConfig.selectedCategory}&difficulty=${quizConfig.selectedDifficulty}&type=${quizConfig.selectedType}`,
+    // );
     return data.results;
   } catch (error) {
     return rejectWithValue(error);

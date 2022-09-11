@@ -87,9 +87,6 @@ const QuizScreen = ({navigation}) => {
     return <LoadingSpinner />;
   }
 
-  console.log(questions);
-  console.log(multipleChoiceAns);
-
   return (
     <View style={styles.quizContainer}>
       {questions.length > 0 && questions !== [] ? (

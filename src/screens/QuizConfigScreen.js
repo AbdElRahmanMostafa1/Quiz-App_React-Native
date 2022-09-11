@@ -39,7 +39,6 @@ const QuizConfigScreen = ({navigation}) => {
   };
 
   const changeNumberOfQuestionsHandler = value => {
-    console.log(value);
     if (value <= 0 || isNaN(value) || value > 15 || !value) {
       setAmountError(
         'Oops! Please Enter amount of questions correctly between 1 to 15',

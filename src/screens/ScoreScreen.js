@@ -17,8 +17,6 @@ const ScoreScreen = ({navigation}) => {
   );
   const [scorePercentage, setScorePercentage] = useState(0);
 
-  console.log(questions);
-
   useEffect(() => {
     const backAction = () => {
       Alert.alert("Wow! It's so funny", 'Do you want to play again?', [
