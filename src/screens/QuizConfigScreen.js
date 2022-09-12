@@ -39,19 +39,21 @@ const QuizConfigScreen = ({navigation}) => {
   };
 
   const changeNumberOfQuestionsHandler = value => {
-    if (value <= 0 || isNaN(value) || value > 15 || !value) {
-      setAmountError(
-        'Oops! Please Enter amount of questions correctly between 1 to 15',
-      );
-    } else {
-      dispatch(changeNumberOfQuestions(value));
-      setAmountError(null);
-    }
+    dispatch(changeNumberOfQuestions(value));
+    setAmountError(null);
   };
 
   const goToQuizHandler = () => {
     if (numberOfQuestions.length === 0 || !numberOfQuestions) {
       setAmountError('Oops! Please Enter amount of questions between 1 to 15');
+    } else if (
+      numberOfQuestions <= 0 ||
+      isNaN(numberOfQuestions) ||
+      numberOfQuestions > 15
+    ) {
+      setAmountError(
+        'Oops! Please Enter amount of questions correctly between 1 to 15',
+      );
     } else {
       navigation.navigate('QuizScreen');
     }

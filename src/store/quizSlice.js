@@ -5,7 +5,7 @@ const initialState = {
   selectedCategory: '',
   selectedDifficulty: '',
   selectedType: '',
-  numberOfQuestions: '',
+  numberOfQuestions: '10',
   score: 0,
   isQuestionsLoading: false,
   questions: null,
